@@ -1,4 +1,7 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator} from "@react-navigation/native-stack";
+
 
 export default function Index() {
   return (
@@ -9,7 +12,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>Welcome to Smart Stylist!</Text>
     </View>
   );
 }
