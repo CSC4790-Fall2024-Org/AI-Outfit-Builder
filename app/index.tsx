@@ -7,10 +7,6 @@ export default function Index() {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Smart Stylist!</Text>
       <Text style={styles.subtitle}>Your virtual closet at your fingertips.</Text>
-
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
     </View>
   );
 }

@@ -3,7 +3,6 @@
   import * as ImagePicker from 'expo-image-picker';
   
   export default function Closet() {
-      // Update the state type to be string or null
       const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
       const pickImage = async () => {
@@ -20,15 +19,14 @@
               aspect: [4, 3],
               quality: 1,
           });
-  
-          // Log the result to inspect the structure
+
           console.log(result);
   
           if (!result.canceled && result.assets && result.assets.length > 0) {
               const imageUri = result.assets[0].uri;
-              setSelectedImage(imageUri);  // Set the imageUri (string) correctly now
+              setSelectedImage(imageUri); 
           } else {
-              alert("No image selected or result structure is unexpected.");
+              alert("No image selected or action canceled.");
           }
       };
   
@@ -72,7 +70,7 @@
           marginBottom: 30,
       },
       button: {
-          backgroundColor: "#ff6347", 
+          backgroundColor: "#0047AB", 
           paddingVertical: 10,
           paddingHorizontal: 20,
           borderRadius: 25,
