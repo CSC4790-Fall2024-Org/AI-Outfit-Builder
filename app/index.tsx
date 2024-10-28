@@ -7,6 +7,7 @@ export default function Index() {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Smart Stylist!</Text>
       <Text style={styles.subtitle}>Your virtual closet at your fingertips.</Text>
+      <Image source={require('../assets/smartStylistLogo.jpg')} style={styles.image} />
     </View>
   );
 }
