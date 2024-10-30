@@ -1,11 +1,9 @@
-// Import the functions you need from the SDKs you need
+// configuration.jsx
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAX9laLyCkuX2Sqr2On7GoWSK8BXgYVQjs",
   authDomain: "smartstylist-179ce.firebaseapp.com",
@@ -17,6 +15,9 @@ const firebaseConfig = {
   measurementId: "G-VV4NK6WY5P"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const database = getDatabase(app);
+const storage = getStorage(app);
+
+export { app, analytics, database, storage };
