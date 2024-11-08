@@ -8,6 +8,9 @@ export default function Index() {
       <Text style={styles.title}>Welcome to Smart Stylist!</Text>
       <Text style={styles.subtitle}>Your virtual closet at your fingertips.</Text>
       <Image source={require('../assets/smartStylistLogo.jpg')} style={styles.image} />
+      <Text style={styles.instructions}>
+        Start by uploading photos of your clothing to build your closet. Then chat with your Smart Stylist about what you want to wear today!
+      </Text>
     </View>
   );
 }
@@ -36,6 +39,13 @@ const styles = StyleSheet.create({
     color: "#555",
     marginBottom: 30,
   },
+  instructions: {
+    fontSize: 14,
+    color: "#666",
+    textAlign: "center",
+    paddingHorizontal: 20,
+    marginTop: 10,
+  },
   button: {
     backgroundColor: "#ff6347", 
     paddingVertical: 10,
@@ -48,4 +58,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
+
 
