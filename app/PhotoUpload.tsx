@@ -8,7 +8,7 @@
   const app = initializeApp(firebaseConfig);
   const storage = getStorage(app);
   
-  export default function Closet() {
+  export default function PhotoUpload() {
       const [selectedImage, setSelectedImage] = useState<string | null>(null);
       const [uploading, setUploading] = useState<boolean>(false);
   
