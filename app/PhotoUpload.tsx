@@ -89,7 +89,7 @@
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#f0f8ff", 
+          backgroundColor: "#cceeff", 
           padding: 20,
       },
       image: {
