@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, StyleSheet, RefreshControl, Button, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, RefreshControl, Button, TouchableOpacity, TextInput } from 'react-native';
 import { launchImageLibrary, ImageLibraryOptions } from 'react-native-image-picker';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 import { storage } from './configuration';
@@ -11,6 +11,7 @@ const Wardrobe = () => {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [refreshing, setRefreshing] = useState<boolean>(false);
+  const [outfitName, setOutfitName] = useState<string>('');
 
   const fetchImages = async () => {
     setLoading(true);
@@ -40,6 +41,11 @@ const Wardrobe = () => {
   };
 
   const handleSaveOutfit = async () => {
+    if (!outfitName.trim()) {
+      alert('Please enter a name for the outfit');
+      return;
+    }
+
     if (selectedImages.length === 0) {
       alert('Please select images for the outfit');
       return;
@@ -47,6 +53,7 @@ const Wardrobe = () => {
 
     const outfitData = {
       userId: 'guest', 
+      name: outfitName,
       images: selectedImages,
     };
 
@@ -54,6 +61,7 @@ const Wardrobe = () => {
       const outfitsRef = collection(db, 'outfits');
       await addDoc(outfitsRef, outfitData);
       alert('Outfit saved successfully!');
+      setOutfitName('');
       setSelectedImages([]); 
     } catch (error) {
       console.error('Error saving outfit:', error);
@@ -73,6 +81,14 @@ const Wardrobe = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Welcome to your wardrobe!</Text>
+      <Text style={styles.subtitle}>Select images to save as outfits!</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter outfit name"
+        value={outfitName}
+        onChangeText={setOutfitName} 
+      />
       {loading ? (
         <Text>Loading images...</Text>
       ) : (
@@ -125,6 +141,28 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     borderRadius: 10,
     resizeMode: 'cover', 
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingLeft: 8,
+    borderRadius: 5,
+  },
+  title: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#333", 
+    marginBottom: 10,
+    marginTop: 50,
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: 20,
+    color: "#333", 
+    marginBottom: 10,
+    textAlign: "center",
   },
 });
 
