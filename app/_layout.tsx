@@ -35,6 +35,12 @@ export default function TabLayout() {
           title: 'Photo Upload',
         }}
       />
+      <Tabs.Screen
+        name="Outfits"
+        options={{
+          title: 'Outfits',
+        }}
+      />
     </Tabs>
   );
 }
