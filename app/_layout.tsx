@@ -23,6 +23,18 @@ export default function TabLayout() {
           ),
         }}
       />
+       <Tabs.Screen
+        name="Wardrobe"
+        options={{
+          title: 'Wardrobe',
+        }}
+      />
+       <Tabs.Screen
+        name="PhotoUpload"
+        options={{
+          title: 'Photo Upload',
+        }}
+      />
     </Tabs>
   );
 }
