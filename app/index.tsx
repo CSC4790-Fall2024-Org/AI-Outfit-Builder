@@ -8,8 +8,14 @@ export default function Index() {
       <Text style={styles.subtitle}>Your virtual closet at your fingertips.</Text>
       <Image source={require('../assets/smartStylistLogo.jpg')} style={styles.image} />
       <Text style={styles.instructions}>
-        Start by uploading photos of your clothing to build your closet. Then chat with your Smart Stylist about what you want to wear today!
-      </Text>
+        Plan Outfits, Save Time, Dress Your Best!{'\n'}
+        Welcome to SmartStylist, your virtual fashion assistant.{'\n\n'}
+        • Step 1: Snap pictures of your clothes and upload them to your virtual closet.{'\n'}
+        • Step 2: Add a fun description to each item: “My lucky interview blazer" or a more simple description: “Green Sweater"{'\n'}
+        • Step 3: Mix, match, and save outfits for any occasion—no more morning outfit panic!{'\n\n'}
+        Start creating your dream wardrobe now!
+</Text>
+
     </View>
   );
 }
