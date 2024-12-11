@@ -11,6 +11,7 @@ interface Outfit {
 
 const Outfits = ({}) => {
     const [outfits, setOutfits] = useState<Outfit[]>([]);
+    const [refreshing, setRefreshing] = useState(false);
 
    // Fetch saved outfits from Firestore
    const fetchOutfits = async () => {
@@ -32,12 +33,25 @@ const Outfits = ({}) => {
     fetchOutfits();
   }, []);
 
+  const refreshOutfits = async () => {
+    setRefreshing(true);
+    try {
+      await fetchOutfits();
+    } catch (error) {
+      console.error('Error fetching outfits:', error);
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Saved Outfits</Text>
       <FlatList
         data={outfits}
         keyExtractor={(item) => item.id}
+        refreshing={refreshing}
+        onRefresh={refreshOutfits}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.outfitContainer} onPress={() => console.log(item)}>
             <Text style={styles.outfitName}>{item.name}</Text>
